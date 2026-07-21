@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переводчик Морзе</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #ffffff;
+            --accent-color: #00adb5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 2px solid #444;
+            border-radius: 6px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Переводчик Морзе</h1>
+    
+    <div class="group">
+        <label for="inputText">Обычный текст:</label>
+        <textarea id="inputText" placeholder="Введите текст для перевода..."></textarea>
+    </div>
+
+    <div class="buttons">
+        <button onclick="convertToMorse()">В Морзе →</button>
+        <button onclick="convertToText()">← Из Морзе</button>
+    </div>
+
+    <div class="group" style="margin-top: 20px;">
+        <label for="outputText">Код Морзе:</label>
+        <textarea id="outputText" placeholder="... --- ..."></textarea>
+    </div>
+
+    <div class="info">Разделяйте буквы одним пробелом, а слова — тремя.</div>
+</div>
+
+<script>
+    const morseDict = {
+        'А': '.-', 'Б': '-...', 'В': '.--', 'Г': '--.', 'Д': '-..', 'Е': '.', 'Ж': '...-', 'З': '--..', 
+        'И': '..', 'Й': '.---', 'К': '-.-', 'Л': '.-..', 'М': '--', 'Н': '-.', 'О': '---', 'П': '.--.', 
+        'Р': '.-.', 'С': '...', 'Т': '-', 'У': '..-', 'Ф': '..-.', 'Х': '....', 'Ц': '-.-.', 'Ч': '---.', 
+        'Ш': '----', 'Щ': '--.-', 'Ъ': '--.--', 'Ы': '-.--', 'Ь': '-..-', 'Э': '..-..', 'Ю': '..--', 'Я': '.-.-',
+        
+        '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', 
+        '8': '---..', '9': '----.', '0': '-----'
+    };
+
+    const reverseDict = Object.fromEntries(Object.entries(morseDict).map(([k, v]) => [v, k]));
+
+    function convertToMorse() {
+        const input = document.getElementById('inputText').value.toUpperCase();
+        let result = [];
+        
+        for (let char of input) {
+            if (morseDict[char]) {
+                result.push(morseDict[char]);
+            } else if (char === ' ') {
+                result.push(''); // Создаст тройной пробел при склейке
+            }
+        }
+        document.getElementById('outputText').value = result.join(' ');
+    }
+
+    function convertToText() {
+        const input = document.getElementById('outputText').value.trim();
+        let words = input.split('   ');
+        let result = [];
+
+        for (let word of words) {
+            let chars = word.split(' ');
+            let decodedWord = chars.map(char => reverseDict[char] || '').join('');
+            result.push(decodedWord);
+        }
+        document.getElementById('inputText').value = result.join(' ');
+    }
+</script>
+
+</body>
+</html>

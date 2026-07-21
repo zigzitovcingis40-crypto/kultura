@@ -1,0 +1,337 @@
+/* Мой CSS — начало! */
+
+body {
+    background-image: url(images/1639936224_4-abrakadabra-fun-p-fon-gori-dlya-prezentatsii-4.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+h1 {
+    color: #093141;
+    background-color: rgb(132, 208, 252);
+}
+nav {
+    background-color:#1f80a7;
+}
+body {
+    margin:0;
+    padding:20px;
+    max-width:900px;
+}
+nav{
+    padding:12px 20px;
+    margin-bottom: 25px;
+}
+h1{
+    margin-top: 0;
+    padding: 15px;
+    border-radius: 10px;
+}
+p {
+margin-bottom: 15px;
+line-height: 1.7;
+border-radius: 10px;
+background-color:#9edffd;
+
+}
+nav { border-radius: 0 0 10px 10px; }
+.highlight { background-color: yellow; color: black; }
+h2{
+    border-left: 6px solid #036494;  
+    padding-left: 12px;  
+    background-color: #9edffd;   
+    border-radius: 10px;        
+}
+
+
+
+body{
+    max-width: 900px;
+    margin:0 auto;
+    padding:20;
+}
+/* обычное состояние */
+a{
+    color:#1f80a7;
+    text-decoration: none;
+    /*убираем подчеркивание*/
+:visited { color: #A855F7; }
+}
+/*когда мышь над сылкой */
+a:hover{
+    color:rgb(1, 162, 255);
+    text-decoration: underline;
+}
+/**/
+a:active{
+    color:rgb(0, 60, 255)
+}
+/* Ссылки в nav — отдельный стиль */
+nav a {
+    color: rgb(14, 78, 255);
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #9c47fd;
+
+}
+/* ===== КРАСИВОЕ МЕНЮ ===== */
+nav {
+    background-color: #53bee9;
+    display: flex;          /* ссылки в ряд! */
+    gap: 4px;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+nav a {
+    color: #0053a0;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    background-color: #bbebff;
+    color: rgb(0, 119, 255);
+}
+
+
+/* ===== КНОПКА ===== */
+.btn {
+    display: flex;
+    background-color: #c7eeff;
+    color: rgb(0, 0, 0);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 30px;
+  margin-bottom:50px;
+  ;
+ 
+
+}
+
+.btn:hover {
+    background-color: #9edffd;
+}
+
+.btn:active {
+    background-color: #036494;
+}
+.btn:active{
+    color: #002cf0;
+}
+.btn-first{
+    display: flex;
+    background-color: #c7eeff;
+    color: rgb(0, 0, 0);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    justify-content: center;
+  align-items: center;
+  width: 525px;
+  height: 250px;
+  margin-bottom:50px;
+  font-size: 80px;
+}
+
+.btn-first:hover {
+    background-color: #9edffd;
+}
+
+.btn-first:active {
+    background-color: #036494;
+}
+.btn-first:active{
+    color: #002cf0;
+}
+/* ===== АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ ===== */
+/* Работает только когда экран уже 600px  */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    nav {
+        flex-direction: column;  /* меню вертикально */
+        border-radius: 10px;
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    img {
+        width: 100%;   /* картинка на всю ширину экрана */
+        height: auto;
+    }
+    h2{
+        font-size: 12px;
+    }
+    .card{
+        padding: 8px 
+    }
+
+}
+
+
+img { display:block; margin:0 auto; }
+.btn-first{
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-first {
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-first:hover {
+    transform: translateY(-8px) scale(1.02);
+    
+}
+.btn{
+  
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-8px) scale(1.02);
+    
+}
+.btn-pulse {
+    display: inline-block;
+    background-color: #FB923C;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.btn-pulse{
+  
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-pulse:hover {
+    transform: translateY(-8px) scale(1.02);
+    
+}
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.btn-second{
+    display: flex;
+    background-color: #c7eeff;
+    color: rgb(0, 0, 0);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    justify-content: center;
+  align-items: center;
+  width: 1500px;
+  height: 400px;
+  margin-bottom:50px;
+  font-size: 100px;
+}
+
+.btn-second:hover {
+    background-color: #9edffd;
+}
+
+.btn-second:active {
+    background-color: #ff0000;
+}
+.btn-second:active{
+    color: #000000;
+}
+.btn-true{
+    display: flex;
+    background-color: #c7eeff;
+    color: rgb(0, 0, 0);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    justify-content: center;
+  align-items: center;
+  width: 5215253px;
+  height: 400px;
+  margin-bottom:50px;
+  font-size: 80px;
+}
+
+.btn-true:hover {
+    background-color: #9edffd;
+}
+
+.btn-true:active {
+    background-color: #00ff55;
+}
+.btn-true:active{
+    color: #000000;}
+    .achievement {
+        position: fixed;
+        bottom: 20px; right: -340px;
+        background: #9edffd;
+        color: #4988c2;
+        padding: 14px 20px;
+        border: 2px solid #3b5c86;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: right 0.5s;
+        z-index: 9999;
+    }
+    .achievement.show { right: 20px; }
+    body {
+        transform: scale(0.7); /* Уменьшит сайт до 90% от исходного размера */
+        transform-origin: top center; /* Фиксирует точку масштабирования (сверху по центру) */
+    }
