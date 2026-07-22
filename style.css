@@ -332,6 +332,6 @@ nav {
     }
     .achievement.show { right: 20px; }
     body {
-        transform: scale(0.7); /* Уменьшит сайт до 90% от исходного размера */
+        transform: scale(1); /* Уменьшит сайт до 90% от исходного размера */
         transform-origin: top center; /* Фиксирует точку масштабирования (сверху по центру) */
     }
